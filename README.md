@@ -2,9 +2,17 @@
 
 I made a docker image containing CoppeliaSim v4 EDU over a ros-noetic base image, to make it quicker to start working on the Flexible Automation labs. The image is automatically pulled by the bash scripts here presented, so you theoretically don't have to worry about it. For any issue with it simply open an issue post here on GitHub and I'll go on and do my best to fix it.
 
+# Dependencies Summary
+
+- docker (>19.03)
+- nvidia-container-toolkit
+- (*optional*) CUDA toolkit (see [1])
+- (*on WSL*) a third party XServer (see [2])
+- (*on WSL, optional*) WSLg
+
 # How to use
 
-All the scripts needed to launch the docker container are placed in the `scripts` folder. The `run_wsl.sh` script here presented is intended to use in a **WSL2** environment, while the `run_unix.sh` is intended to be used in a **Unix** system: both of them require `nvidia-container-toolkit`, NVIDIA CUDA acceleration enabled [1] and Docker version > 19.03. It runs a **new** container each time: remember that once you remove a container, all data not saved/exported somewhere **will be lost**. It can be simply launched with
+All the scripts needed to launch the docker container are placed in the `scripts` folder. The `run_wsl.sh` script here presented is intended to use in a **WSL2** environment, while the `run_unix.sh` is intended to be used in a **Unix** system: both of them require `nvidia-container-toolkit` (NVIDIA CUDA acceleration should not be required, since I assume we wont use GPUs accelerated computing, but if that becomes the case please see [1]) and Docker version > 19.03. It runs a **new** container each time: remember that once you remove a container, all data not saved/exported somewhere **will be lost**. It can be simply launched with
 ```bash
 bash run_<your-system-type>.sh
 ```
