@@ -14,7 +14,11 @@ I made a docker image containing CoppeliaSim v4 EDU over a ros-noetic base image
 
 All the scripts needed to launch the docker container are placed in the `scripts` folder. The `run_wsl.sh` script here presented is intended to use in a **WSL2** environment, while the `run_unix.sh` is intended to be used in a **Unix** system: both of them require `nvidia-container-toolkit` (NVIDIA CUDA acceleration should not be required, since I assume we wont use GPUs accelerated computing, but if that becomes the case please see [1]) and Docker version > 19.03. It runs a **new** container each time: remember that once you remove a container, all data not saved/exported somewhere **will be lost**. It can be simply launched with
 ```bash
-bash run_<your-system-type>.sh
+bash scripts/run_<your-system-type>.sh
+```
+eg.
+```bash
+bash scripts/run_wsl.sh
 ```
 
 My suggestion is to save all your progresses in a github repo, making sure to keep it updated and re-pulling it in new containers.
